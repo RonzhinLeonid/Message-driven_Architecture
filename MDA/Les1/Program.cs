@@ -11,7 +11,8 @@ while (true)
                       "1 - забронировать, мы уведомим Вас по смс (асинхронно)\n" +
                       "2 - забронировать, подождите на линии, мы Вас оповестим (синхронно)\n" +
                       "3 - освободить, мы уведомим Вас по смс (асинхронно)\n" +
-                      "4 - освободить, подождите на линии, мы Вас оповестим (синхронно)\n"
+                      "4 - освободить, подождите на линии, мы Вас оповестим (синхронно)\n" +
+                      "5 - Показать все столы\n"
                       );
 
     //var choiceValid = int.TryParse(Console.ReadLine(), out var choice);
@@ -32,7 +33,7 @@ while (true)
     { 
         rest.BookFreeTable(1);
     }
-    else
+    else if (choice == 3 || choice == 4)
     {
         Console.WriteLine("Укажите номер столика");
         int.TryParse(Console.ReadLine(), out var tableId);
@@ -44,6 +45,10 @@ while (true)
         {
             rest.FreeTable(tableId);
         }
+    }
+    else
+    {
+        rest.ShowTable();
     }
 
     Console.WriteLine("Спасибо за Ваше обращение!");

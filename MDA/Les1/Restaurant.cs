@@ -4,6 +4,7 @@
     {
         private readonly List<Table> _tables = new();
         private readonly Notification _notification = new() { SendDelay = 300 };
+        private readonly AutoResetEvent _event = new(true);
 
         public Restaurant()
         {
@@ -14,11 +15,23 @@
         }
 
         /// <summary>
+        /// Показать список столов
+        /// </summary>
+        public void ShowTable()
+        {
+            foreach (var item in _tables)
+            {
+                Console.WriteLine(item);
+            }
+        }
+
+        /// <summary>
         /// Бронирование стола 
         /// </summary>
         /// <param name="countOfPersons"></param>
         public void BookFreeTable(int countOfPersons)
         {
+            _event.WaitOne();
             Console.WriteLine("Добрый день! Подождите секунду я подберу столик и подтвержу вашу бронь, оставайтесь на линии");
 
             var table = _tables.FirstOrDefault(t => t.SeatsCount >= countOfPersons && t.State == StateTable.Free);
@@ -28,6 +41,7 @@
             Console.WriteLine(table is null
                 ? "К сожалению, сейчас все столики заняты"
                 : "Готово! Ваш столик номер " + table.Id);
+            _event.Set();
         }
 
         /// <summary>
@@ -36,6 +50,7 @@
         /// <param name="countOfPersons"></param>
         public void BookFreeTableAsync(int countOfPersons)
         {
+            _event.WaitOne();
             Console.WriteLine("Добрый день! Подождите секунду я подберу столик и подтвержу вашу бронь, вам придёт уведомление");
 
             Task.Run(async () =>
@@ -50,6 +65,7 @@
                 await _notification.Send(table is null
                 ? "К сожалению, сейчас все столики заняты"
                 : "Готово! Ваш столик номер " + table.Id);
+                _event.Set();
             });
         }
 
@@ -59,6 +75,7 @@
         /// <param name="id">Id Стола</param>
         public void FreeTable(int id)
         {
+            _event.WaitOne();
             Console.WriteLine("Добрый день! Подождите секунду я освобожу столик, оставайтесь на линии");
             var table = _tables.FirstOrDefault(t => t.Id == id);
 
@@ -69,6 +86,7 @@
             Console.WriteLine(table is null
                 ? "Такого столика нет в нашем ресторане"
                 : "Готово! Мы отменили вашу бронь");
+            _event.Set();
         }
 
         /// <summary>
@@ -77,6 +95,7 @@
         /// <param name="id">Id Стола</param>
         public void FreeTableAsync(int id)
         {
+            _event.WaitOne();
             Console.WriteLine("Добрый день! Подождите секунду я освобожу столик, вам придёт уведомление");
 
             Task.Run(async () =>
@@ -90,6 +109,7 @@
                 await _notification.Send(table is null
                     ? "Такого столика нет в нашем ресторане"
                     : "Готово! Мы отменили вашу бронь");
+                _event.Set();
             });
         }
     }
