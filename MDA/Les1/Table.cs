@@ -12,7 +12,7 @@
             State = StateTable.Free;
             SeatsCount = Random.Shared.Next(2, 5);
         }
-
+        
         /// <summary>
         /// Статсу стола
         /// </summary>

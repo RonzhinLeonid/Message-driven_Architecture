@@ -5,12 +5,30 @@
         private readonly List<Table> _tables = new();
         private readonly Notification _notification = new() { SendDelay = 300 };
         private readonly AutoResetEvent _event = new(true);
+        private readonly PeriodicTimer _timer = new(TimeSpan.FromSeconds(20));
+        private readonly CancellationTokenSource _freeTablesCancellationSource = new();
 
         public Restaurant()
         {
             for (byte i = 1; i <= 10; i++)
             {
                 _tables.Add(new Table(i));
+            }
+
+            FreeTables(_freeTablesCancellationSource.Token);
+        }
+
+        async Task FreeTables(CancellationToken token)
+        {
+            while (await _timer.WaitForNextTickAsync(token))
+            {
+                if (token.IsCancellationRequested) return;
+
+                var bookedTables = _tables.Where(t => t.State == StateTable.Booked).ToList();
+
+                foreach (var table in bookedTables)
+                    table.SetState(StateTable.Free);
+                Console.WriteLine("Бронь всех столов сброшена");
             }
         }
 
