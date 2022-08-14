@@ -4,6 +4,7 @@ using System.Text;
 
 Console.OutputEncoding = Encoding.UTF8;
 var rest = new Restaurant();
+int tableId;
 
 while (true)
 {
@@ -15,7 +16,6 @@ while (true)
                       "5 - Показать все столы\n"
                       );
 
-    //var choiceValid = int.TryParse(Console.ReadLine(), out var choice);
     if (!int.TryParse(Console.ReadLine(), out int choice) && choice is not (1 or 2))
     {
         Console.WriteLine("Введите, пожалуйста от 1 до 4");
@@ -25,30 +25,29 @@ while (true)
     var stopWatch = new Stopwatch();
     stopWatch.Start();
 
-    if (choice == 1)
+    switch (choice)
     {
-        rest.BookFreeTableAsync(1);
-    }
-    else if (choice == 2)
-    { 
-        rest.BookFreeTable(1);
-    }
-    else if (choice == 3 || choice == 4)
-    {
-        Console.WriteLine("Укажите номер столика");
-        int.TryParse(Console.ReadLine(), out var tableId);
-        if (choice == 3)
-        {
+        case (int)UserAnswer.BookingAsync:
+            rest.BookFreeTableAsync(1);
+            break;
+        case (int)UserAnswer.BookingSync:
+            rest.BookFreeTable(1);
+            break;
+        case (int)UserAnswer.CancelBookingAsync:
+            Console.WriteLine("Укажите номер столика");
+            int.TryParse(Console.ReadLine(), out tableId);
             rest.FreeTableAsync(tableId);
-        }
-        else
-        {
+            break;
+        case (int)UserAnswer.CancelBookingSync:
+            Console.WriteLine("Укажите номер столика");
+            int.TryParse(Console.ReadLine(), out tableId);
             rest.FreeTable(tableId);
-        }
-    }
-    else
-    {
-        rest.ShowTable();
+            break;
+        case (int)UserAnswer.ShowAllTable:
+            rest.ShowTable();
+            break;
+        default:
+            break;
     }
 
     Console.WriteLine("Спасибо за Ваше обращение!");
