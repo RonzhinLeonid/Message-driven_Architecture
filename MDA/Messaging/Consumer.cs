@@ -2,16 +2,18 @@
 using RabbitMQ.Client.Events;
 using SettingRabbit;
 using System.Net.Security;
+using System.Text;
 
 namespace Messaging
 {
     public class Consumer
     {
         private readonly ConnectionFactory _connectionFactory;
-        private readonly IModel _channel;
-        private readonly string _queueName;
+        private readonly IModel? _channel;
+        private readonly string? _queueName;
 
-        public Consumer(string queueName)
+        public ConnectionFactory ConnectionFactory  => _connectionFactory;
+        public Consumer()
         {
             _connectionFactory = new ConnectionFactory
             {
@@ -29,11 +31,14 @@ namespace Messaging
                     Version = System.Security.Authentication.SslProtocols.Tls12 | System.Security.Authentication.SslProtocols.Tls11
                 }
             };
+        }
 
+        public Consumer(string queueName):base()
+        {
             _channel = _connectionFactory.CreateConnection().CreateModel();
             _queueName = queueName;
         }
-
+        
         /// <summary>
         /// Получить сообщение из очереди
         /// </summary>

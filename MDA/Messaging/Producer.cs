@@ -15,8 +15,8 @@ namespace Messaging
             {
                 HostName = Setting.HostName,
                 VirtualHost = Setting.VirtualHost,
-                UserName = Setting.UserName, 
-                Password = Setting.Password, 
+                UserName = Setting.UserName,
+                Password = Setting.Password,
                 Port = Setting.Port,
                 RequestedHeartbeat = TimeSpan.FromSeconds(10),
                 Ssl = new SslOption
@@ -42,18 +42,14 @@ namespace Messaging
                 try
                 {
                     using IConnection connection = _connectionFactory.CreateConnection();
-                    using (StreamReader reader = new StreamReader(new MemoryStream(data)))
+                    using (var channel = connection.CreateModel())
                     {
-                        using (var channel = connection.CreateModel())
-                        {
-                            channel.BasicPublish(exchange: "",
-                                routingKey: queueName,
-                                body: data);
-                            channel.Close();
-                        }
-                        Console.WriteLine($"Сообщение отправлено в очередь {queueName}");
-                        reader.Close();
-                        connection.Close();
+                        channel.ExchangeDeclare(exchange: Setting.Exchange, type: ExchangeType.Fanout);
+                        channel.BasicPublish(exchange: Setting.Exchange,
+                                             routingKey: "",
+                                             basicProperties: null,
+                                             body: data);
+                        Console.WriteLine("Sent {0}", message);
                     }
                 }
                 catch (Exception e)
