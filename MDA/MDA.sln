@@ -3,7 +3,17 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Les1", "Les1\Les1.csproj", "{D57F74FC-F212-4E3E-98B4-972E73D963AD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Les1", "Les1\Les1.csproj", "{D57F74FC-F212-4E3E-98B4-972E73D963AD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messaging", "Messaging\Messaging.csproj", "{D034C367-DA7F-45DE-B394-B452699F61D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaraunt.Booking", "Restaraunt.Booking\Restaraunt.Booking.csproj", "{7B307496-C1E3-4D78-9382-947F13CEB026}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restourant.Notifications", "Restourant.Notifications\Restourant.Notifications.csproj", "{9245750F-0D47-4EEB-AD9D-76693BCB2E04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettingRabbit", "SettingRabbit\SettingRabbit.csproj", "{C1AF33CB-AC1E-421F-839A-F2CF32BBFC6E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restourant.Notifications_V2", "Restourant.Notifications_V2\Restourant.Notifications_V2.csproj", "{9B33BEB7-F0AA-4009-9D68-70C77F9149D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +25,26 @@ Global
 		{D57F74FC-F212-4E3E-98B4-972E73D963AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D57F74FC-F212-4E3E-98B4-972E73D963AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D57F74FC-F212-4E3E-98B4-972E73D963AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D034C367-DA7F-45DE-B394-B452699F61D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D034C367-DA7F-45DE-B394-B452699F61D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D034C367-DA7F-45DE-B394-B452699F61D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D034C367-DA7F-45DE-B394-B452699F61D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7B307496-C1E3-4D78-9382-947F13CEB026}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7B307496-C1E3-4D78-9382-947F13CEB026}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7B307496-C1E3-4D78-9382-947F13CEB026}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7B307496-C1E3-4D78-9382-947F13CEB026}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9245750F-0D47-4EEB-AD9D-76693BCB2E04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9245750F-0D47-4EEB-AD9D-76693BCB2E04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9245750F-0D47-4EEB-AD9D-76693BCB2E04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9245750F-0D47-4EEB-AD9D-76693BCB2E04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1AF33CB-AC1E-421F-839A-F2CF32BBFC6E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1AF33CB-AC1E-421F-839A-F2CF32BBFC6E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1AF33CB-AC1E-421F-839A-F2CF32BBFC6E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1AF33CB-AC1E-421F-839A-F2CF32BBFC6E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B33BEB7-F0AA-4009-9D68-70C77F9149D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B33BEB7-F0AA-4009-9D68-70C77F9149D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B33BEB7-F0AA-4009-9D68-70C77F9149D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B33BEB7-F0AA-4009-9D68-70C77F9149D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
