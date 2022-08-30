@@ -9,11 +9,21 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Messaging", "Messaging\Mess
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaraunt.Booking", "Restaraunt.Booking\Restaraunt.Booking.csproj", "{7B307496-C1E3-4D78-9382-947F13CEB026}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restourant.Notifications", "Restourant.Notifications\Restourant.Notifications.csproj", "{9245750F-0D47-4EEB-AD9D-76693BCB2E04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restourant.Notifications", "Restourant.Notifications\Restourant.Notifications.csproj", "{9245750F-0D47-4EEB-AD9D-76693BCB2E04}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SettingRabbit", "SettingRabbit\SettingRabbit.csproj", "{C1AF33CB-AC1E-421F-839A-F2CF32BBFC6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SettingRabbit", "SettingRabbit\SettingRabbit.csproj", "{C1AF33CB-AC1E-421F-839A-F2CF32BBFC6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Restourant.Notifications_V2", "Restourant.Notifications_V2\Restourant.Notifications_V2.csproj", "{9B33BEB7-F0AA-4009-9D68-70C77F9149D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restourant.Notifications_V2", "Restourant.Notifications_V2\Restourant.Notifications_V2.csproj", "{9B33BEB7-F0AA-4009-9D68-70C77F9149D7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Les3", "Les3", "{E467AD27-4C4D-4D67-9210-BB6F64F5D7FD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Booking", "Les3\Restaraunt.Booking\Restaurant.Booking.csproj", "{A2D2CF53-5D10-4D6E-9E49-0EF192ADDD37}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Kitchen", "Les3\Restaurant.Kitchen\Restaurant.Kitchen.csproj", "{CB130366-CE4B-4FC5-9396-9798B555647F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Messages", "Les3\Restaurant.Messages\Restaurant.Messages.csproj", "{CC23EB37-379E-428F-8EF0-9AAF8B20F9AA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Restaurant.Notification", "Les3\Restaurant.Notification\Restaurant.Notification.csproj", "{4AF37D5E-8287-4AE7-9DB5-C5C0361FAA29}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -45,9 +55,31 @@ Global
 		{9B33BEB7-F0AA-4009-9D68-70C77F9149D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9B33BEB7-F0AA-4009-9D68-70C77F9149D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9B33BEB7-F0AA-4009-9D68-70C77F9149D7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A2D2CF53-5D10-4D6E-9E49-0EF192ADDD37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A2D2CF53-5D10-4D6E-9E49-0EF192ADDD37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A2D2CF53-5D10-4D6E-9E49-0EF192ADDD37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A2D2CF53-5D10-4D6E-9E49-0EF192ADDD37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CB130366-CE4B-4FC5-9396-9798B555647F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CB130366-CE4B-4FC5-9396-9798B555647F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CB130366-CE4B-4FC5-9396-9798B555647F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CB130366-CE4B-4FC5-9396-9798B555647F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC23EB37-379E-428F-8EF0-9AAF8B20F9AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC23EB37-379E-428F-8EF0-9AAF8B20F9AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC23EB37-379E-428F-8EF0-9AAF8B20F9AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC23EB37-379E-428F-8EF0-9AAF8B20F9AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AF37D5E-8287-4AE7-9DB5-C5C0361FAA29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AF37D5E-8287-4AE7-9DB5-C5C0361FAA29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AF37D5E-8287-4AE7-9DB5-C5C0361FAA29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AF37D5E-8287-4AE7-9DB5-C5C0361FAA29}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A2D2CF53-5D10-4D6E-9E49-0EF192ADDD37} = {E467AD27-4C4D-4D67-9210-BB6F64F5D7FD}
+		{CB130366-CE4B-4FC5-9396-9798B555647F} = {E467AD27-4C4D-4D67-9210-BB6F64F5D7FD}
+		{CC23EB37-379E-428F-8EF0-9AAF8B20F9AA} = {E467AD27-4C4D-4D67-9210-BB6F64F5D7FD}
+		{4AF37D5E-8287-4AE7-9DB5-C5C0361FAA29} = {E467AD27-4C4D-4D67-9210-BB6F64F5D7FD}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {34885081-56A2-4878-97FE-60A5DB374729}
