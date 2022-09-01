@@ -1,16 +1,21 @@
-﻿namespace Restaurant.Messages
+﻿using System;
+
+namespace Restaurant.Messages
 {
-    public interface ITableBooked
+    public interface IBookingRequest
     {
         public Guid OrderId { get; }
+
         public Guid ClientId { get; }
-        public DateTime CreationDate { get; }
+
         public Dish? PreOrder { get; }
+
+        public DateTime CreationDate { get; }
     }
 
-    public class TableBooked : ITableBooked
+    public class BookingRequest : IBookingRequest
     {
-        public TableBooked(Guid orderId, Guid clientId, Dish? preOrder, DateTime creationDate)
+        public BookingRequest(Guid orderId, Guid clientId, Dish? preOrder, DateTime creationDate)
         {
             OrderId = orderId;
             ClientId = clientId;
@@ -20,7 +25,7 @@
 
         public Guid OrderId { get; }
         public Guid ClientId { get; }
-        public DateTime CreationDate { get; }
         public Dish? PreOrder { get; }
+        public DateTime CreationDate { get; }
     }
 }
