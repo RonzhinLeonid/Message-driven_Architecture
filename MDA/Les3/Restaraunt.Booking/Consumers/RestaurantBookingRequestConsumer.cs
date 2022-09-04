@@ -1,7 +1,5 @@
-﻿using System;
-using System.Threading.Tasks;
-using MassTransit;
-using MassTransit.Definition;
+﻿using MassTransit;
+using MassTransit.RabbitMqTransport;
 using Restaurant.Messages;
 
 namespace Restaurant.Booking.Consumers
@@ -20,8 +18,7 @@ namespace Restaurant.Booking.Consumers
             Console.WriteLine($"[OrderId: {context.Message.OrderId}]");
             var result = await _restaurant.BookFreeTableAsync(1);
 
-            await context.Publish<INotify>(new Notify(context.Message.OrderId, context.Message.ClientId, "Кухня дала добро"));
-            await context.ConsumeCompleted;
+            await context.Publish<ITableBooked>(new TableBooked(context.Message.OrderId, context.Message.ClientId, context.Message.PreOrder, result ?? false));
         }
     }
 }

@@ -2,6 +2,7 @@ using System;
 using System.Threading;
 using System.Threading.Tasks;
 using MassTransit;
+using MassTransit.RabbitMqTransport;
 using Microsoft.Extensions.Hosting;
 using Restaurant.Messages;
 
@@ -15,6 +16,7 @@ namespace Restaurant.Booking
         public Worker(IBus bus, Restaurant restaurant)
         {
             _bus = bus;
+            //_bus.GetRabbitMqHostTopology();
             _restaurant = restaurant;
         }
 
@@ -24,8 +26,6 @@ namespace Restaurant.Booking
 
             while (!stoppingToken.IsCancellationRequested)
             {
-                //await Task.Delay(5000, stoppingToken);
-
                 Console.WriteLine("Привет! Желаете забронировать или освободить столик?\n" +
                       "1 - забронировать, мы уведомим Вас по смс (асинхронно)\n" +
                       "2 - освободить, мы уведомим Вас по смс (асинхронно)\n" +
@@ -44,12 +44,12 @@ namespace Restaurant.Booking
                     case (int)UserAnswer.BookingAsync:
                         Console.WriteLine("Укажите номер столика для бронирования");
                         int.TryParse(Console.ReadLine(), out tableId);
-                        await _bus.Publish((ITableBooked)new TableBooked(NewId.NextGuid(), NewId.NextGuid(), null, dateTime), stoppingToken);
+                        Console.WriteLine("IBookingRequest");
+                        await _bus.Publish(new BookingRequest(Guid.NewGuid(), Guid.NewGuid(), null, dateTime), stoppingToken);
                         break;
                     case (int)UserAnswer.CancelBookingAsync:
                         Console.WriteLine("Укажите номер столика");
                         int.TryParse(Console.ReadLine(), out tableId);
-                        await _bus.Publish<ITableBooked>(new TableBooked(NewId.NextGuid(), NewId.NextGuid(), null, dateTime), stoppingToken);
                         break;
                     case (int)UserAnswer.ShowAllTable:
                         _restaurant.ShowTable();

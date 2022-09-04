@@ -7,7 +7,7 @@
 
     public class KitchenReady : IKitchenReady
     {
-        public KitchenReady(Guid orderId, bool ready)
+        public KitchenReady(Guid orderId)
         {
             OrderId = orderId;
         }

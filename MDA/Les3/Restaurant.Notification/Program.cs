@@ -20,11 +20,7 @@ namespace Restaurant.Notification
                 {
                     services.AddMassTransit(x =>
                     {
-                        x.AddConsumer<NotifyConsumer>()
-                            .Endpoint(e =>
-                            {
-                                e.Temporary = true;
-                            });
+                        x.AddConsumer<NotifyConsumer>();
 
                         x.UsingRabbitMq((context, cfg) =>
                         {

@@ -19,14 +19,9 @@ namespace Restaurant.Booking
                 {
                     services.AddMassTransit(x =>
                     {
-                        x.AddConsumer<RestaurantBookingRequestConsumer>()
-                            .Endpoint(e =>
-                             {
-                                 e.Temporary = true;
-                             });
+                        x.AddConsumer<RestaurantBookingRequestConsumer>();
 
                         x.AddSagaStateMachine<RestaurantBookingSaga, RestaurantBooking>()
-                            .Endpoint(e => e.Temporary = true)
                             .InMemoryRepository();
 
                         x.AddDelayedMessageScheduler();

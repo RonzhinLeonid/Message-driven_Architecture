@@ -15,13 +15,8 @@ namespace Restaurant.Kitchen.Consumers
 
         public async Task Consume(ConsumeContext<ITableBooked> context)
         {
-            Console.WriteLine($"[OrderId: {context.Message.OrderId} CreationDate: {context.Message.CreationDate}]");
-            Console.WriteLine("Trying time: " + DateTime.Now);
-
-            _manager.CheckKitchenReady(context.Message.OrderId, context.Message.PreOrder);
-
-            await context.Publish<INotify>(new Notify(context.Message.OrderId, context.Message.ClientId, "Кухня дала добро"));
-            await context.ConsumeCompleted;
+            if (_manager.CheckKitchenReady(context.Message.OrderId, context.Message.PreOrder))
+                await context.Publish<IKitchenReady>(new KitchenReady(context.Message.OrderId));
         }
     }
 }
