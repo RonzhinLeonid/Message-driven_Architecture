@@ -32,8 +32,6 @@ namespace Restaurant.Kitchen
                     });
 
                     services.AddSingleton<Manager>();
-
-                    services.AddMassTransitHostedService(true);
                 });
     }
 }

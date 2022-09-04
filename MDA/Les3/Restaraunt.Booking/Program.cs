@@ -33,7 +33,6 @@ namespace Restaurant.Booking
                             cfg.ConfigureEndpoints(context);
                         });
                     });
-                    services.AddMassTransitHostedService();
 
                     services.AddTransient<RestaurantBooking>();
                     services.AddTransient<RestaurantBookingSaga>();

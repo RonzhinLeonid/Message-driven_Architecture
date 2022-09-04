@@ -1,5 +1,4 @@
-﻿using GreenPipes;
-using MassTransit;
+﻿using MassTransit;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Restaurant.Notification.Consumers;
@@ -40,7 +39,6 @@ namespace Restaurant.Notification
                     });
 
                     services.AddSingleton<Notifier>();
-                    services.AddMassTransitHostedService(true);
                 });
     }
 }
